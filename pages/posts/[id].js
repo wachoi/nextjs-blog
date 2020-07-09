@@ -3,9 +3,9 @@ import { getAllPostId, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Layout from '../../components/layout';
 import utilStyles from '../../styles/utils.module.css'
-import ReactMarkdown from 'react-markdown'
 
 export default function Post({ postData }) {
+  console.log(postData)
   return (
     <Layout>
       <Head>
@@ -16,7 +16,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <ReactMarkdown dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   );

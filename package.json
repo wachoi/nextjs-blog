@@ -16,6 +16,7 @@
     "react-highlight": "^0.12.0",
     "react-markdown": "^4.3.1",
     "remark": "^12.0.0",
+    "remark-highlight.js": "^6.0.0",
     "remark-html": "^11.0.2"
   }
 }
