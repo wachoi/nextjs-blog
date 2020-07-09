@@ -3,8 +3,7 @@ import { getAllPostId, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Layout from '../../components/layout';
 import utilStyles from '../../styles/utils.module.css'
-import Highlight from 'react-highlight'
-import codeStyles from '../node_modules/highlight.js/styles/github.css'
+import ReactMarkdown from 'react-markdown'
 
 export default function Post({ postData }) {
   return (
@@ -17,8 +16,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <Highlight dangerouslySetInnerHTML={{ __html: postData.contentHtml }}>
-        </Highlight>
+        <ReactMarkdown dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   );
