@@ -5,7 +5,6 @@ import Layout from '../../components/layout';
 import utilStyles from '../../styles/utils.module.css'
 
 export default function Post({ postData }) {
-  console.log(postData)
   return (
     <Layout>
       <Head>

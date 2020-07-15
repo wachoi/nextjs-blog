@@ -22,7 +22,11 @@ Javascript code가 synchronous하게 되어 있다면 -즉 하나의 작업이 �
 
 그리고 마침내.. 이번 과제에서 답해야 하는 'eventloop'가 등장한다.
 
-**Eventloop**는 이름 그대로 **loop**이다. 이 loop는 '할 일을 보내는 곳(여기서는 callback queue'과 '일을 하는 곳(여기서는 javascript engine)'에 일이 있는지 확인하고 일을 하는 곳이 비면 다음 일을 채우는 일만 무한히 반복한다. MDN 문서에서는 이 일을 다음의 while 문으로 표현헸다.
+**Eventloop**는 이름 그대로 **loop**이다. loop는 [어떤 조건을 만족하게 될 때까지 반복하여 수행되는 명령](https://www.thoughtco.com/definition-of-loop-958105)이다. Eventloop가 정확하게 어떤 방법으로 queue에 들어오는 메세지를 javascript engine에 보내는 것인지는 잘 모르겠지만, 내가 이해한 바로는 아래와 같다. 
+
+Eventloop는 Web API가 queue에 보내는 메세지를 기다린다. 기다리다가 메세지가 오면 queue에 다른 메세지가 있는지 보고, 있으면 queue에 메세지를 쌓는다. Queue 에 다른 메세지가 없다면 stack이 비어있는지를 보고, 비어있으면 메세지를 javascript engine에 보내어 그 callback을 받아 실행되어야 하는 코드 덩어리가 실행되도록 한다. Stack에 할 일이 있다면 stack이 빌 때까지 다시 Web API에서 오는 메세지를 기다린다. 이 일련의 일을 계속 반복하는 loop가 eventloop이다. 
+
+[MDN 문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)에서는 이 일을 다음의 while 문으로 표현헸다.
 ```
 while (queue.waitForMessage()) {
   queue.processNextMessage()
