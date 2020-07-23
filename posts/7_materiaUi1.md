@@ -39,6 +39,6 @@ _참고 - material ui의 2014년 10월 11일 readme.md 중에서_
 
 그렇다면 여러 React UI component library 중에서 어떤 것이 _가장 잘 나가는_ 라이브러리일까? Github star 수로는 Ant Design이 1등이지만, 스승님의 말로는 github star 수가 실제 사용자 수를 보장하지는 않으며, 허수가 있을 수도 있다고 해서 npm trends를 살펴보았다. [Npm trends](https://www.npmtrends.com/)는 npm package download 수를 비교해 보여주는 웹페이지로, 실제 다운로드 수이기 때문에 실제 사용자 수를 더 잘 반영하는 데이터라고 할 수 있다. 물론, npm 외에 yarn이나 다른 다운로드 경로가 있기 때문에 모든 사용자 수를 알려주는 것은 아니다. 하지만 어떤 패키지가 더 잘 나가는지 파악하기에 충분하다.
 
-![npm trends](../public/images/7_MaterialUI1_npmTrends.png)
+![npm trends](/images/7_MaterialUI1_npmTrends.png)
 
 놀랍게도 Material UI가 압도적으로 Ant Design 보다 많이 쓰이고 있다. Github star 수 차이가 신기할 따름이다. 참고로, Material UI의 다운로드 수가 2018년 5월까지는 없는 것처럼 보이는 이유는 패키지 이름이 바뀌었기 때문이다. 아마도 당분간은 계속 Material UI를 쓰게 될 것 같다.
