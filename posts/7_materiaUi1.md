@@ -15,16 +15,13 @@ Material UI는 Google의 **material design**을 적용한 오픈소스 **React c
 
 _참고 - material ui의 2014년 10월 11일 readme.md 중에서_
 
-```
-Material-UI is a CSS framework and a set of [React](http://facebook.github.io/react/) components that implement [Google's Material Design](https://www.google.com/design/spec/material-design/introduction.html) specification.
-```
+> Material-UI is a CSS framework and a set of [React](http://facebook.github.io/react/) components that implement [Google's > Material Design](https://www.google.com/design/spec/material-design/introduction.html) specification.
 
 (중략)
 
-```
-## Contribute
-[Material-UI](http://callemall.github.io/material-ui/) came about from our love of [React](http://facebook.github.io/react/) and [Google's Material Design](https://www.google.com/design/spec/material-design/introduction.html). We're currently using it on a project we're working on at [Call-Em-All](https://www.call-em-all.com/) and plan on adding to it and making it better. If you'd like to help, check out our [gh-pages](https://github.com/callemall/material-ui/tree/gh-pages) branch. We'd greatly appreciate any feedback you may have. :)
-```
+> ## Contribute
+>
+> [Material-UI](http://callemall.github.io/material-ui/) came about from our love of [React](http://facebook.github.io/react/) and [Google's Material Design](https://www.google.com/design/spec/material-design/introduction.html). We're currently using it on a project we're working on at [Call-Em-All](https://www.call-em-all.com/) and plan on adding to it and making it better. If you'd like to help, check out our [gh-pages](https://github.com/callemall/material-ui/tree/gh-pages) branch. We'd greatly appreciate any feedback you may have. :)
 
 위의 readme.me에도 나와있듯이, 이 당시의 Material UI는 LESS로 만들어진 CSS framewalk였다. 하지만 2016년에 지금도 Material UI의 중추 역할을 하고 있는 [Olivier Tassinari](https://github.com/oliviertassinari)의 결정으로 LESS를 벗어나 JSS를 사용하게 되었다. [이 글](https://github.com/oliviertassinari/a-journey-toward-better-style)에 JSS를 사용하기로 결정한 이유가 자세히 나온다. 요약하자면, 1) Javascript를 충분히 활용할 수 있는 API가 있는가? 2) first paint까지의 시간이 얼마나 빠른가? 3) 라이브러리의 크기(용량)가 얼마나 작은가?, 4)Server rendering이 가능한가? 5) 치우치지 않는 것인가?(많은 사람들이 사용하는가?), 6) 사용자들이 debug하기 편리한가?를 중점적으로 보았고, 추가로 CSS output의 크기를 고려했다.
 
@@ -42,6 +39,6 @@ Material-UI is a CSS framework and a set of [React](http://facebook.github.io/re
 
 그렇다면 여러 React UI component library 중에서 어떤 것이 _가장 잘 나가는_ 라이브러리일까? Github star 수로는 Ant Design이 1등이지만, 스승님의 말로는 github star 수가 실제 사용자 수를 보장하지는 않으며, 허수가 있을 수도 있다고 해서 npm trends를 살펴보았다. [Npm trends](https://www.npmtrends.com/)는 npm package download 수를 비교해 보여주는 웹페이지로, 실제 다운로드 수이기 때문에 실제 사용자 수를 더 잘 반영하는 데이터라고 할 수 있다. 물론, npm 외에 yarn이나 다른 다운로드 경로가 있기 때문에 모든 사용자 수를 알려주는 것은 아니다. 하지만 어떤 패키지가 더 잘 나가는지 파악하기에 충분하다.
 
-![npm trends](public/images/7_MaterialUI1_npmTrends.png)
+![npm trends](../public/images/7_MaterialUI1_npmTrends.png)
 
 놀랍게도 Material UI가 압도적으로 Ant Design 보다 많이 쓰이고 있다. Github star 수 차이가 신기할 따름이다. 참고로, Material UI의 다운로드 수가 2018년 5월까지는 없는 것처럼 보이는 이유는 패키지 이름이 바뀌었기 때문이다. 아마도 당분간은 계속 Material UI를 쓰게 될 것 같다.
