@@ -39,7 +39,7 @@ Component를 customize 하는 방법을 다시 두 가지로 간단하게 분류
 
 먼저 theme을 살펴보자. Customized theme을 사용하려면 먼저 **createMuiTheme**을 사용해 **나만의 theme 오브젝트**를 만들어야 한다. Material UI 홈페이지의 [theming 페이지](https://material-ui.com/customization/theming/)를 살펴보면 기본적인 사용법을 알 수 있다. palette, typography 등 많이 사용할 법한 속성들은 문서 안에 설명이 잘 되어 있어 따라 하면 된다.
 
-그런데 button의 borderRadius를 바꾼다거나, 그림자 없이 납작하게 보이게 하고 싶다거나 하면 **button이 어떻게 생겼는지를 Material UI github의 소스코드에서 찾아서 거기에 맞게 CSS override를 하거나 props를 수정할 필요가 있다.** 아래 예시는 이런 변화를 가져온다. 1) Palette를 수정해 버튼 및 다른 component들의 primary 색상을 보라색으로 바꾼다. 2) MuiButton(Material UI의 button component의 이름)의 CSS style root에서 borRadius를 수정해 모든 버튼이 양 옆이 둥근 모양이 되게 한다. (다시 보니 Radius 자체를 특정한 값으로 주는 방법이라 좋은 방법 같지는 않다) 3) MuiButton의 props 중에 disableElevation을 true로 주어 납작하게 만든다. 모든 버튼에서 그림자가 사라지게 된다. (디폴트는 false)
+그런데 button의 borderRadius를 바꾼다거나, 그림자 없이 납작하게 보이게 하고 싶다거나 하면 **button이 어떻게 생겼는지를 Material UI github의 소스코드에서 찾아서 거기에 맞게 CSS override를 하거나 props를 수정할 필요가 있다.** 아래 예시는 이런 변화를 가져온다. 1) Palette를 수정해 버튼 및 다른 component들의 primary 색상을 보라색으로 바꾼다. 2) MuiButton(Material UI의 button component의 이름)의 CSS style root에서 borderRadius를 수정해 모든 버튼이 양 옆이 둥근 모양이 되게 한다. (다시 보니 Radius 자체를 특정한 값으로 주는 방법이라 좋은 방법 같지는 않다) 3) MuiButton의 props 중에 disableElevation을 true로 주어 납작하게 만든다. 모든 버튼에서 그림자가 사라지게 된다. (디폴트는 false)
 
 ```javascript
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -66,7 +66,7 @@ const theme = createMuiTheme({
 });
 ```
 
-마지막으로, Materail UI의 theme은 React의 context를 이용하기 때문에, 내가 만든 theme를 사용하는 **ThemeProvider**로 theme을 적용하려는 component들을 감싸주어야 한다. 아래 예시와 같이 사용하면 된다.
+그리고 Materail UI의 theme은 React의 context를 이용하기 때문에, 내가 만든 theme을 사용하는 **ThemeProvider**로 theme을 적용하려는 component들을 감싸준다. 그러면 감싸진 component들에는 그 theme이 적용된다. 아래 예시와 같이 사용하면 된다.
 
 ```javascript
 <ThemeProvider theme={theme}>
@@ -74,11 +74,11 @@ const theme = createMuiTheme({
 </ThemeProvider>
 ```
 
-그 다음은 `@material-ui/styles` 또는 `@material-ui/core/styles`에서 제공하는 makeStyles, styled, withStyles를 이용하는 방법이다. 각각의 사용법은 [이 문서](https://material-ui.com/styles/basics/#material-ui-styles)에 자세히 나와 있다. Theme은 여러 component들이 공유하는 속성들을 한꺼번에 바꾸는데 사용하는데, makeStyles 등은 그보다 좀더 섬세하게 하나 하나 스타일을 바꾸고자 할 때 사용하는 것 같다. 사실 theme에서도 내가 위에서 한 것처럼 특정한 component의 스타일을 바꿀 수 있다. 아마 여기서 다루는 API들도 내가 한 것과 비슷한 방식으로 특정한 상황에서만 수정한 theme이 사용되도록 하는게 아닌가 싶다.
+두 번째 방법은 `@material-ui/styles` 또는 `@material-ui/core/styles`에서 제공하는 makeStyles, styled, withStyles를 이용하는 방법이다. 각각의 사용법은 [이 문서](https://material-ui.com/styles/basics/#material-ui-styles)에 자세히 나와 있다. Theme은 여러 component들이 공유하는 속성들을 한꺼번에 바꾸는데 사용하는데, makeStyles 등은 그보다 좀더 섬세하게 하나 하나 스타일을 바꾸고자 할 때 사용하는 것 같다. 사실 theme에서도 내가 위에서 한 것처럼 특정한 component의 스타일을 바꿀 수 있다. 아마 여기서 다루는 API들도 내가 한 것과 비슷한 방식으로 특정한 상황에서만 수정한 theme이 사용되도록 하는게 아닌가 싶다.
 
 솔직히 이게 어떻게 작동하는 건지 잘 이해를 못했다. 지금 이해한대로만 간단히 언급하고, React의 기본 개념들을 좀더 공부한 다음에 다시 살펴봐야겠다.
 
-1. **Hook API**: makeStyles를 이용해 style sheet를 만들고, className을 이용해 특정한 component에 적용시키는 방법. CSS selector로 특정한 html tag에 스타일을 적용하는 것과 비슷한 것 같다. 한 component를 여러 스타일로 써야 하는데, 전체 코드가 길지 않아서 스타일을 나타내는 코드와 그 스타일을 사용하는 component가 있는 코드를 같이 보는 게 가독성이 더 좋을 때 사용하면 좋을 것 같다.
+1. **Hook API**: makeStyles를 이용해 style sheet를 만들고, className을 이용해 특정한 component에 적용시키는 방법. CSS selector로 특정한 html tag에 스타일을 적용하는 것과 비슷한 것 같다. 한 component를 여러 스타일로 써야 하는데, 전체 코드가 길지 않아서 스타일을 정의하는 코드와 그 스타일을 사용하는 component가 있는 코드를 같이 보는 게 가독성이 더 좋을 때 사용하면 좋을 것 같다.
 
 2. **Styled components API**: styled를 이용해 내가 지정한 style을 가지는 component를 새로 만들어 사용하는 방법. 한 component를 여러 스타일로 써야 하는데, 반복해서 사용해야 한다면 이렇게 사용하는게 코드를 읽기 쉬울 것 같다.
 
