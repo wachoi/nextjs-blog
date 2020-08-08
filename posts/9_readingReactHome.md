@@ -57,3 +57,8 @@ React는 고유한 state를 가지는 declarative한 component들로 구성되�
 - **An Application**: Props와 state를 사용해 작은 앱을 만들 수 있다. State에 현 시점의 할 일 목록과 입력된 텍스트를 가지는 TODO app을 예시로 들었다.
 
 - **A Component Using External Plugins**: React는 다른 라이브러리나 프레임워크들과 함께 사용될 수 있다. [Remarkable](https://github.com/jonschlinkert/remarkable)이라는 외부 라이브러리를 이용해 `<textarea>`에 입력된 값을 실시간으로 변환시켜 보여주는 예시를 들었다.
+
+스승님으로부터 대충은 이해한 것 같은데, 더 정확히 이해를 하려면 경험이 쌓여야할 것 같다는 피드백을 받았다.
+위 내용에서 사용한 'state'라는 단어가 어떤 의미로 사용된 것인지, template이 아니라는 것이 어떤 의미인지 정확히 이해하지 못했다.
+
+이 글은 나중에 다시 수정해야겠다.
